@@ -5,18 +5,18 @@ using System.Web;
 
 namespace ExampleApp.Models
 {
-    public class Repository
+    public class Repository : IRepository
     {
         private Dictionary<int, Product> data;
-        private static Repository repo;
-        static Repository()
-        {
-            repo = new Repository();
-        }
-        public static Repository Current
-        {
-            get { return repo; }
-        }
+        //private static Repository repo;
+        //static Repository()
+        //{
+        //    repo = new Repository();
+        //}
+        //public static Repository Current
+        //{
+        //    get { return repo; }
+        //}
 
         public Repository()
         {
