@@ -22,6 +22,12 @@
                 <td data-bind="text: ProductID"></td>
                 <td data-bind="text: Name"></td>
                 <td data-bind="text: Price"></td>
+                <td>
+                    <button class="deleteBtn btn btn-danger btn-sm"
+                            data-bind="click: deleteProduct">
+                        Delete
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>

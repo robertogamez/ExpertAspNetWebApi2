@@ -21,5 +21,18 @@ namespace ExampleApp.Controllers
         {
             return repo.Products;
         }
+
+        public IHttpActionResult Delete(int id)
+        {
+            repo.DeleteProduct(id);
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        [HttpGet]
+        [Route("api/products/noop")]
+        public IHttpActionResult NoOp()
+        {
+            return Ok();
+        }
     }
 }
