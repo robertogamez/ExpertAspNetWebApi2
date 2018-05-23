@@ -1,4 +1,5 @@
-﻿using ExampleApp.Models;
+﻿using ExampleApp.Infrastructure;
+using ExampleApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,9 @@ namespace ExampleApp.Controllers
         public IHttpActionResult Delete(int id)
         {
             repo.DeleteProduct(id);
-            return StatusCode(HttpStatusCode.NoContent);
+            //return StatusCode(HttpStatusCode.NoContent);
+            //return ResponseMessage(new HttpResponseMessage(HttpStatusCode.NoContent));
+            return new NoContentResult();
         }
 
         [HttpGet]

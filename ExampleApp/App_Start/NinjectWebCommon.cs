@@ -14,6 +14,8 @@ namespace ExampleApp.App_Start
     using Ninject.Web.WebApi;
     using Models;
     using Ninject.Web.Common.WebHost;
+    using Infrastructure;
+    using System.Net.Http.Formatting;
 
     public static class NinjectWebCommon 
     {
@@ -69,6 +71,8 @@ namespace ExampleApp.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IRepository>().To<Repository>().InSingletonScope();
+
+            kernel.Bind<IContentNegotiator>().To<CustomNegotiator>();
         }        
     }
 }

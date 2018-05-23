@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ExampleApp.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace ExampleApp
@@ -13,6 +15,8 @@ namespace ExampleApp
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+
+            //config.Services.Replace(typeof(IContentNegotiator), new CustomNegotiator());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
