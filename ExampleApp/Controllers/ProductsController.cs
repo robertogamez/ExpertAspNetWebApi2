@@ -18,9 +18,9 @@ namespace ExampleApp.Controllers
             repo = repoImpl;
         }
 
-        public IEnumerable<Product> GetAll()
+        public IHttpActionResult GetAll()
         {
-            return repo.Products;
+            return Ok(repo.Products);
         }
 
         public IHttpActionResult Delete(int id)
