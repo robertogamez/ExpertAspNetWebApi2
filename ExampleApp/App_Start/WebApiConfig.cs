@@ -23,6 +23,9 @@ namespace ExampleApp
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // Formatters
+            config.Formatters.Add(new ProductFormatter());
         }
     }
 }

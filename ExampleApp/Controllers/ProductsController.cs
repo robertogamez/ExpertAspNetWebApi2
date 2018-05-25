@@ -18,24 +18,14 @@ namespace ExampleApp.Controllers
             repo = repoImpl;
         }
 
-        public IHttpActionResult GetAll()
+        public IEnumerable<Product> GetAll()
         {
-            return Ok(repo.Products);
+            return repo.Products;
         }
 
-        public IHttpActionResult Delete(int id)
+        public void Delete(int id)
         {
             repo.DeleteProduct(id);
-            //return StatusCode(HttpStatusCode.NoContent);
-            //return ResponseMessage(new HttpResponseMessage(HttpStatusCode.NoContent));
-            return new NoContentResult();
-        }
-
-        [HttpGet]
-        [Route("api/products/noop")]
-        public IHttpActionResult NoOp()
-        {
-            return Ok();
         }
     }
 }

@@ -72,7 +72,7 @@ namespace ExampleApp.App_Start
         {
             kernel.Bind<IRepository>().To<Repository>().InSingletonScope();
 
-            kernel.Bind<IContentNegotiator>().To<CustomNegotiator>();
+            //kernel.Bind<IContentNegotiator>().To<CustomNegotiator>();
         }        
     }
 }
