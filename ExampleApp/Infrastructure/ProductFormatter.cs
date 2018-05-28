@@ -17,7 +17,8 @@ namespace ExampleApp.Infrastructure
     {
         public ProductFormatter()
         {
-            SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/x.product"));
+            //SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/x.product"));
+            MediaTypeMappings.Add(new ProductMediaMapping());
         }
 
         public override bool CanReadType(Type type)
@@ -28,6 +29,16 @@ namespace ExampleApp.Infrastructure
         public override bool CanWriteType(Type type)
         {
             return type == typeof(Product) || type == typeof(IEnumerable<Product>);
+        }
+
+        public override void SetDefaultContentHeaders(
+            Type type, 
+            HttpContentHeaders headers, 
+            MediaTypeHeaderValue mediaType)
+        {
+            base.SetDefaultContentHeaders(type, headers, mediaType);
+            headers.Add("X-ModelType", type == typeof(IEnumerable<Product>) ? "IEnumerable<Product>" : "Product");
+            headers.Add("X-MediaType", mediaType.MediaType);
         }
 
         public override async Task WriteToStreamAsync(Type type, object value, Stream writeStream, HttpContent content, TransportContext transportContext, CancellationToken cancellationToken)
