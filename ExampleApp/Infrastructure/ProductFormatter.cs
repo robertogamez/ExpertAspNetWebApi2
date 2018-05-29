@@ -15,10 +15,18 @@ namespace ExampleApp.Infrastructure
 {
     public class ProductFormatter : MediaTypeFormatter
     {
+        private string controllerName;
+
         public ProductFormatter()
         {
             //SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/x.product"));
             MediaTypeMappings.Add(new ProductMediaMapping());
+        }
+
+        public ProductFormatter(string controllerArg)
+            : this()
+        {
+            controllerName = controllerArg;
         }
 
         public override bool CanReadType(Type type)
@@ -41,6 +49,17 @@ namespace ExampleApp.Infrastructure
             headers.Add("X-MediaType", mediaType.MediaType);
         }
 
+        public override MediaTypeFormatter GetPerRequestFormatterInstance(
+            Type type, 
+            HttpRequestMessage request, 
+            MediaTypeHeaderValue mediaType)
+        {
+            //return base.GetPerRequestFormatterInstance(type, request, mediaType);
+            return new ProductFormatter(
+                request.GetRouteData().Values["controller"].ToString()
+            );
+        }
+
         public override async Task WriteToStreamAsync(Type type, object value, Stream writeStream, HttpContent content, TransportContext transportContext, CancellationToken cancellationToken)
         {
             List<string> productStrings = new List<string>();
@@ -48,7 +67,12 @@ namespace ExampleApp.Infrastructure
 
             foreach (Product product in products)
             {
-                productStrings.Add(string.Format("{0},{1},{2}", product.ProductID, product.Name, product.Price));
+                productStrings.Add(string.Format("{0},{1},{2}", 
+                    product.ProductID, 
+                    controllerName == null 
+                        ? product.Name 
+                        : string.Format("{0} ({1})", product.Name, controllerName),
+                    product.Price));
             }
 
             StreamWriter writer = new StreamWriter(writeStream);

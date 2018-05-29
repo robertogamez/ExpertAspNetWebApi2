@@ -1,4 +1,6 @@
 ﻿using ExampleApp.Infrastructure;
+using System;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace ExampleApp
@@ -15,13 +17,25 @@ namespace ExampleApp
             //config.Services.Replace(typeof(IContentNegotiator), new CustomNegotiator());
 
             config.Routes.MapHttpRoute(
+                name: "API with extension",
+                routeTemplate: "api/{controller}.{ext}/{id}",
+                defaults: new { id = RouteParameter.Optional, ext = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
             // Formatters
-            config.Formatters.Add(new ProductFormatter());
+            MediaTypeFormatter prodFormatter = new ProductFormatter();
+            prodFormatter.AddQueryStringMapping("format", "product", "application/x.product");
+            prodFormatter.AddRequestHeaderMapping("X-UseProductFormat", "true", StringComparison.InvariantCultureIgnoreCase, false, "application/x.product");
+            prodFormatter.AddUriPathExtensionMapping("custom", "application/x.product");
+            config.Formatters.Add(prodFormatter);
+            //config.Formatters.Add(new ProductFormatter());
         }
     }
 }
+
