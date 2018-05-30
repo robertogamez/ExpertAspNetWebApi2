@@ -29,12 +29,9 @@ namespace ExampleApp
             );
 
             // Formatters
-            MediaTypeFormatter prodFormatter = new ProductFormatter();
-            prodFormatter.AddQueryStringMapping("format", "product", "application/x.product");
-            prodFormatter.AddRequestHeaderMapping("X-UseProductFormat", "true", StringComparison.InvariantCultureIgnoreCase, false, "application/x.product");
-            prodFormatter.AddUriPathExtensionMapping("custom", "application/x.product");
-            config.Formatters.Add(prodFormatter);
-            //config.Formatters.Add(new ProductFormatter());
+            MediaTypeFormatter xmlFormatter = config.Formatters.XmlFormatter;
+            config.Formatters.Remove(xmlFormatter);
+            config.Formatters.Insert(0, xmlFormatter);
         }
     }
 }
