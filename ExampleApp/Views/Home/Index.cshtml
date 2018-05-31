@@ -7,9 +7,21 @@
 @section Scripts {
     <script>
         var products = ko.observableArray(@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model)));
+        var errors = ko.observableArray();
     </script>
     <script src="~/Scripts/exampleApp.js"></script>
 }
+
+<div class="alert alert-danger" data-bind="visible: errors().length">
+    <p>
+        <strong>
+            Something has gone wrong:
+        </strong>
+        <ul data-bind="foreach: errors">
+            <li data-bind="text: $data"></li>
+        </ul>
+    </p>
+</div>
 
 <div class="panel panel-primary">
     <div class="panel-heading">RSVPs</div>

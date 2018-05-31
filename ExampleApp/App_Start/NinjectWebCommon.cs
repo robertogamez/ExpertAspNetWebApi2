@@ -71,7 +71,7 @@ namespace ExampleApp.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IRepository>().To<Repository>().InSingletonScope();
-
+            kernel.Bind<IContentNegotiator>().To<DefaultContentNegotiator>().WithConstructorArgument("excludeMatchOnTypeOnly", true);
             //kernel.Bind<IContentNegotiator>().To<CustomNegotiator>();
         }        
     }

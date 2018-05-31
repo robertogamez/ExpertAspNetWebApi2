@@ -14,12 +14,13 @@
             headers: {
                 "X-UseProductFormat": "true"
             },
-            dataType: 'text',
+            //dataType: 'text',
             accepts: {
-                text: 'application/x.product'
+                "*": 'application/x.product'
             },
             success: function (data) {
                 products.removeAll();
+                errors.removeAll();
                 //for (var i = 0; i < data.length; i++) {
                 //    products.push(data[i]);
                 //}
@@ -30,6 +31,14 @@
                         Name: arr[i + 1],
                         Price: arr[i + 2]
                     });
+                }
+            },
+            error: function (jqXHR) {
+                errors.removeAll();
+                switch (jqXHR.status) {
+                    case 406:
+                        errors.push('Request not accepted by server');
+                        break;
                 }
             }
         });
