@@ -25,5 +25,10 @@ namespace ExampleApp.Controllers
         {
             return View();
         }
+
+        public ActionResult Bindings()
+        {
+            return View();
+        }
     }
 }
