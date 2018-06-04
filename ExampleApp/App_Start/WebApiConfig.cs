@@ -30,9 +30,9 @@ namespace ExampleApp
             );
 
             // Formatters
-            //MediaTypeFormatter xmlFormatter = config.Formatters.XmlFormatter;
-            //config.Formatters.Remove(xmlFormatter);
-            //config.Formatters.Insert(0, xmlFormatter);
+            MediaTypeFormatter xmlFormatter = config.Formatters.XmlFormatter;
+            config.Formatters.Remove(xmlFormatter);
+            config.Formatters.Insert(0, xmlFormatter);
             JsonMediaTypeFormatter jsonFormatter = config.Formatters.JsonFormatter;
             jsonFormatter.Indent = true;
             jsonFormatter.SerializerSettings.DateFormatHandling
