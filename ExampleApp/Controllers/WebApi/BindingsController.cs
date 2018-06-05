@@ -19,9 +19,9 @@ namespace ExampleApp.Controllers.WebApi
 
         [HttpGet]
         [HttpPost]
-        public int SumNumbers(int first, int second)
+        public int SumNumbers(Numbers calc)
         {
-            return first + second;
+            return calc.First + calc.Second;
         }
     }
 }

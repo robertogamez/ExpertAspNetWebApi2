@@ -143,6 +143,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\app\bindings.js" />
     <Content Include="Scripts\exampleApp.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -180,6 +181,7 @@
     <Compile Include="Infrastructure\ProductFormatter.cs" />
     <Compile Include="Infrastructure\ProductMediaMapping.cs" />
     <Compile Include="Models\IRepository.cs" />
+    <Compile Include="Models\Numbers.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
