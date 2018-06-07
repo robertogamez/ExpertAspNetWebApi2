@@ -1,8 +1,10 @@
 ﻿using ExampleApp.Infrastructure;
+using ExampleApp.Models;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using System.Web.Http.Controllers;
 
 namespace ExampleApp
 {
@@ -33,6 +35,12 @@ namespace ExampleApp
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // Parameter Rules
+            config.ParameterBindingRules.Insert(
+                0, 
+                typeof(Numbers), 
+                x => x.BindWithAttribute(new FromUriAttribute()));
 
         }
     }
