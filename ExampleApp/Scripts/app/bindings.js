@@ -5,7 +5,7 @@ var gotError = ko.observable(false);
 var sendRequest = function () {
     $.ajax('/api/bindings/sumnumbers', {
         type: 'post',
-        data: { '': viewModel().first },
+        data: viewModel(),
         success: function (data) {
             gotError(false);
             response('Total: ' + data)

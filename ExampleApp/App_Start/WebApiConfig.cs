@@ -37,10 +37,10 @@ namespace ExampleApp
             );
 
             // Parameter Rules
-            config.ParameterBindingRules.Insert(
-                0, 
-                typeof(Numbers), 
-                x => x.BindWithAttribute(new FromUriAttribute()));
+            //config.ParameterBindingRules.Insert(
+            //    0, 
+            //    typeof(Numbers), 
+            //    x => x.BindWithAttribute(new FromUriAttribute()));
 
         }
     }
