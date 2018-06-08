@@ -1,10 +1,12 @@
-﻿using ExampleApp.Models;
+﻿using ExampleApp.Infrastructure;
+using ExampleApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.ValueProviders;
 
 namespace ExampleApp.Controllers.WebApi
 {
@@ -25,9 +27,9 @@ namespace ExampleApp.Controllers.WebApi
 
         //    return op.Double ? result * 2 : result;
         //}
-        public int SumNumbers(Numbers calc)
+        public string SumNumbers(Numbers calc, [ValueProvider(typeof(HeaderValueProviderFatory))]string accept)
         {
-            return calc.First + calc.Second;
+            return string.Format("{0} (Accept: {1})", calc.First + calc.Second, accept);
         }
     }
 } 

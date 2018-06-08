@@ -178,6 +178,8 @@
     </Compile>
     <Compile Include="Infrastructure\CustomNegotiator.cs" />
     <Compile Include="Infrastructure\HeadersMap.cs" />
+    <Compile Include="Infrastructure\HeaderValueProviderFatory.cs" />
+    <Compile Include="Infrastructure\HeaderVaueProvider.cs" />
     <Compile Include="Infrastructure\NoContentResult.cs" />
     <Compile Include="Infrastructure\ProductFormatter.cs" />
     <Compile Include="Infrastructure\ProductMediaMapping.cs" />
