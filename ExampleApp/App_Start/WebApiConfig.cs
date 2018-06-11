@@ -5,6 +5,7 @@ using System;
 using System.Net.Http.Formatting;
 using System.Web.Http;
 using System.Web.Http.Controllers;
+using System.Web.Http.ValueProviders;
 
 namespace ExampleApp
 {
@@ -41,6 +42,7 @@ namespace ExampleApp
             //    0, 
             //    typeof(Numbers), 
             //    x => x.BindWithAttribute(new FromUriAttribute()));
+            config.Services.Add(typeof(ValueProviderFactory), new HeaderValueProviderFatory());
 
         }
     }

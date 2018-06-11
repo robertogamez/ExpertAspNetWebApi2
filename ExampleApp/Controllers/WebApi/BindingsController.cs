@@ -32,9 +32,9 @@ namespace ExampleApp.Controllers.WebApi
         //    return string.Format("{0} (Accept: {1})", calc.First + calc.Second, accept);
         //}
 
-        public string SumNumbers(Numbers numbers, [FromHeader]string accept)
+        public string SumNumbers([FromUri]Numbers numbers)
         {
-            return string.Format("{0} (Accept: {1})", numbers.First + numbers.Second, accept);
+            return string.Format("{0}", numbers.First + numbers.Second);
         }
     }
 } 
