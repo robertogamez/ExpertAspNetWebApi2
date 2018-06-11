@@ -177,7 +177,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\CustomNegotiator.cs" />
+    <Compile Include="Infrastructure\FromHeaderAttribute.cs" />
     <Compile Include="Infrastructure\HeadersMap.cs" />
+    <Compile Include="Infrastructure\HeaderValueParameterBinding.cs" />
     <Compile Include="Infrastructure\HeaderValueProviderFatory.cs" />
     <Compile Include="Infrastructure\HeaderVaueProvider.cs" />
     <Compile Include="Infrastructure\NoContentResult.cs" />

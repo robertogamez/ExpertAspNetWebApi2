@@ -27,9 +27,14 @@ namespace ExampleApp.Controllers.WebApi
 
         //    return op.Double ? result * 2 : result;
         //}
-        public string SumNumbers(Numbers calc, [ValueProvider(typeof(HeaderValueProviderFatory))]string accept)
+        //public string SumNumbers(Numbers calc, [ValueProvider(typeof(HeaderValueProviderFatory))]string accept)
+        //{
+        //    return string.Format("{0} (Accept: {1})", calc.First + calc.Second, accept);
+        //}
+
+        public string SumNumbers(Numbers numbers, [FromHeader]string accept)
         {
-            return string.Format("{0} (Accept: {1})", calc.First + calc.Second, accept);
+            return string.Format("{0} (Accept: {1})", numbers.First + numbers.Second, accept);
         }
     }
 } 
