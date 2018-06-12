@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
 using System.Web.Http.ValueProviders;
 
 namespace ExampleApp.Controllers.WebApi
@@ -32,9 +33,9 @@ namespace ExampleApp.Controllers.WebApi
         //    return string.Format("{0} (Accept: {1})", calc.First + calc.Second, accept);
         //}
 
-        public string SumNumbers([FromUri]Numbers numbers)
+        public string SumNumbers([ModelBinder]int[] numbers)
         {
-            return string.Format("{0}", numbers.First + numbers.Second);
+            return numbers.Sum().ToString();
         }
     }
 } 
