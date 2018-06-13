@@ -1,5 +1,6 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="app/bindings.js" />
+/// <reference path="app/validation.js" />
 /// <reference path="bootstrap.js" />
 /// <reference path="exampleapp.js" />
 /// <reference path="jquery-1.10.2.js" />

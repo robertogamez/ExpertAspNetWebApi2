@@ -30,5 +30,10 @@ namespace ExampleApp.Controllers
         {
             return View();
         }
+
+        public ActionResult Validation()
+        {
+            return View();
+        }
     }
 }

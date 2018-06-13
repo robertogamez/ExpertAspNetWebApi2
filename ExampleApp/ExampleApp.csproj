@@ -144,6 +144,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\app\bindings.js" />
+    <Content Include="Scripts\app\validation.js" />
     <Content Include="Scripts\exampleApp.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -170,9 +171,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\FormattersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\WebApi\BindingsController.cs" />
     <Compile Include="Controllers\WebApi\FormatsController.cs" />
+    <Compile Include="Controllers\WebApi\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,6 +200,7 @@
     <Content Include="Views\Formatters\Index.cshtml" />
     <Content Include="Views\Home\Formats.cshtml" />
     <Content Include="Views\Home\Bindings.cshtml" />
+    <Content Include="Views\Home\Validation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
