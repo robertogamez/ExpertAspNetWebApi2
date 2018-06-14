@@ -9,12 +9,12 @@ var gotError = ko.observable(false);
 
 var sendRequest = function (requestType) {
 
-    var requestData = viewModel();
-    requestData.IncludeInSale = true;
+    //var requestData = viewModel();
+    //requestData.IncludeInSale = true;
 
     $.ajax('/api/products', {
         type: 'post',
-        data: requestData,
+        data: viewModel(),
         success: function (data) {
             gotError(false);
             response("Success");
