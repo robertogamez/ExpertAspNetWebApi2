@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Dispatch.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 
 namespace Dispatch
 {
@@ -19,6 +21,12 @@ namespace Dispatch
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.MessageHandlers.Add(new CustomMessageHandler());
+
+            config.Services.Replace(typeof(IHttpControllerTypeResolver), 
+                new CustomControllerTypeResolver { Suffix = "Service" });
+            config.Services.Replace(typeof(IHttpControllerSelector), new CustomControllerSelector("Service"));
         }
     }
 }

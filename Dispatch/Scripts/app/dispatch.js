@@ -42,6 +42,13 @@ var sendRequest = function (verb, id) {
         }
     }
 
+    if (verb != 'GET' && verb != 'POST') {
+        config.type = 'POST';
+        config.headers = {
+            'X-HTTP-Method-Override': verb
+        };
+    }
+
     $.ajax(url, config);
 };
 
