@@ -13,5 +13,10 @@ namespace Dispatch.Controllers
         {
             return View();
         }
+
+        public ActionResult Today()
+        {
+            return View();
+        }
     }
 }
