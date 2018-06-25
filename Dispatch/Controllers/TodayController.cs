@@ -20,5 +20,11 @@ namespace Dispatch.Controllers
         {
             return DateTime.Now.Day;
         }
+
+        [HttpGet]
+        public string DayOfWeek(int day)
+        {
+            return Enum.GetValues(typeof(DayOfWeek)).GetValue(day).ToString();
+        }
     }
 }
