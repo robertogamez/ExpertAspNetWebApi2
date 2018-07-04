@@ -1,4 +1,5 @@
-﻿using Dispatch.Models;
+﻿using Dispatch.Infrastructure;
+using Dispatch.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Web.Http;
 
 namespace Dispatch.Controllers
 {
+    [Time]
     public class ProductsController : ApiController
     {
 

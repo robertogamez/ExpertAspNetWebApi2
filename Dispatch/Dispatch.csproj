@@ -138,6 +138,7 @@
     <Compile Include="Infrastructure\CustomControllerSelector.cs" />
     <Compile Include="Infrastructure\CustomControllerTypeResolver.cs" />
     <Compile Include="Infrastructure\CustomMessageHandler.cs" />
+    <Compile Include="Infrastructure\TimeAttribute.cs" />
     <Compile Include="Infrastructure\UserAgentConstraint.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
