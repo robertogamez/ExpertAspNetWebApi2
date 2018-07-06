@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
 using System.Web.Http.Routing.Constraints;
 
@@ -27,6 +28,11 @@ namespace Dispatch
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
+            );
+
+            config.Services.Replace(
+                typeof(IHttpActionSelector),
+                new PipelineActionSelector()
             );
         }
     }
