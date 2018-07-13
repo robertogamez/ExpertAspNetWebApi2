@@ -18,11 +18,11 @@ namespace Dispatch
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                name: "ActionMethods",
-                routeTemplate: "api/{controller}/{action}/{day}",
-                defaults: new { day = RouteParameter.Optional }
-            );
+            //config.Routes.MapHttpRoute(
+            //    name: "ActionMethods",
+            //    routeTemplate: "api/{controller}/{action}/{day}",
+            //    defaults: new { day = RouteParameter.Optional }
+            //);
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
@@ -34,6 +34,11 @@ namespace Dispatch
                 typeof(IHttpActionSelector),
                 new PipelineActionSelector()
             );
+
+            config.Filters.Add(new SayHelloAttribute
+            {
+                Message = "Global Filter"
+            });
         }
     }
 }

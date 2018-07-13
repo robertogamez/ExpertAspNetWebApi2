@@ -25,6 +25,8 @@ namespace Dispatch.Controllers
         {
             return products;
         }
+
+        [CustomFilter]
         public Product Get(int id)
         {
             return products.Where(x => x.ProductID == id).FirstOrDefault();
